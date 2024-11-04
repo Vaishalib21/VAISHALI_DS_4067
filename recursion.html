@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            width: 100%;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .container {
+            display: flex;
+            width: 85%;
+            margin: 30px auto;
+            gap: 20px;
+        }
+
+        .questions {
+            flex: 1;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.3em;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .questions li {
+            font-size: 1em;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .code-output {
+            display: none;
+            flex-direction: column;
+            flex: 1;
+            gap: 20px;
+        }
+
+        .code-frame, .output-frame {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            font-size: 1.2em;
+            overflow: hidden;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px; /* Set fixed height for textarea */
+            background-color: #2c2c2c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            resize: none; /* Prevent resizing */
+            font-family: 'Courier New', Courier, monospace;
+            overflow: auto;
+            outline: none;
+            box-sizing: border-box; /* Include padding in height */
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: #ffcc00;
+        }
+
+        .tabs {
+            display: flex;
+            margin: 20px 0;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex: 1;
+            text-align: center;
+            font-size: 1em;
+            border: 2px solid transparent;
+            border-top: 2px solid #ffcc00;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab:hover {
+            background-color: #333;
+            border-color: #ffcc00;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #1e1e1e;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RECURSION</h1>
+        <div class="tabs">
+            <div class="tab" onclick="location.href='2Darray.html'"><b>2D Array</b></div>
+            <div class="tab" onclick="location.href='graphs.html'"><b>Graphs</b></div>
+            <div class="tab" onclick="location.href='linkedlist.html'"><b>Linked List</b></div>
+            <div class="tab" onclick="location.href='queues.html'"><b>Queues</b></div>
+            <div class="tab" onclick="location.href='recursion.html'"><b>Recursion</b></div>
+            <div class="tab" onclick="location.href='searching.html'"><b>Searching Algorithms</b></div>
+            <div class="tab" onclick="location.href='singlearray.html'"><b>Single Dimension Array</b></div>
+            <div class="tab" onclick="location.href='sorting.html'"><b>Sorting</b></div>
+            <div class="tab" onclick="location.href='stack.html'"><b>Stack</b></div>
+            <div class="tab" onclick="location.href='string.html'"><b>Strings</b></div>
+            <div class="tab" onclick="location.href='trees.html'"><b>Trees</b></div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="questions">
+            <h2>Questions</h2>
+            <ol>
+                <li onclick="toggleCode(0)">Calculate factorial of a number using recursion.</li>
+                <li onclick="toggleCode(1)">Calculate Fibonacci of a number using recursion.</li>
+                <li onclick="toggleCode(2)">Calculate the sum of natural numbers till 10 using recursion.</li>
+                <li onclick="toggleCode(3)">Convert a number into binary using recursion.</li>
+                <li onclick="toggleCode(4)">Find the largest element in the integer array using recursion.</li>
+                <li onclick="toggleCode(5)">Find the smallest element in the integer array using recursion.</li>
+                <li onclick="toggleCode(6)">Enter the number from the user and add all digits of the number using recursion.</li>
+                <li onclick="toggleCode(7)">Find the arithmetic mean of an integer array using recursion.</li>
+            </ol>       </div>
+
+        <div class="code-output" id="code-output-0">
+            <div class="code-frame">
+                <h2>1. Code</h2>
+                <textarea readonly>
+//CALCULATE FACTORIAL OF A NUMBER USING RECURSION
+#include<stdio.h>
+int fact(int n)
+{
+    if(n==0)
+    {
+        return 1;
+    }
+    else
+    {
+        return n*fact(n-1);
+    }
+}
+int main()
+{
+    int n;
+    printf("Enter a number:");
+    scanf("%d",&n);
+    printf("The factorial of %d is:%d",n,fact(n));
+}
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter a number:5
+The factorial of 5 is:120
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-1">
+            <div class="code-frame">
+                <h2>2. Code</h2>
+                <textarea readonly>
+//CALCULATE FIBONACCI OF A NUMBER USING RECURSION
+#include<stdio.h>
+int fib(int n)
+{
+    if(n==0)
+    {
+        return 0;
+    }
+    else if(n==1)
+    {
+        return 1;
+    }
+    else
+    {
+        return fib(n-1)+fib(n-2);
+    }
+}
+int main()
+{
+    int n;
+    printf("Enter a number:");
+    scanf("%d",&n);
+    printf("The fibonacci at position %d is:%d",n,fib(n));
+}
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter a number:4
+The fibonacci at position 4 is:3
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-2">
+            <div class="code-frame">
+                <h2>3. Code</h2>
+                <textarea readonly>
+//CALCULATE THE SUM OF NATURAL NUMBERS TILL 10 USING RECURSION.
+#include<stdio.h>
+int sum(int n)
+{
+    if(n==0)
+    {
+        return 0;
+    }
+    else
+    {
+        return n+sum(n-1);
+    }
+}
+void main()
+{
+    int n=10;
+    printf("The sum of natural number is: %d",sum(n));
+}
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+The sum of natural number is: 55
+                </textarea>
+            </div>
+        </div>
+<div class="code-output" id="code-output-3">
+            <div class="code-frame">
+                <h2>4. Code</h2>
+                <textarea readonly>
+//CONVERT A NUMBER INTO BINARY USING RECURSION
+#include<stdio.h>
+
+int binary(int num)
+{
+    if(num>0)
+    {
+        binary(num/2);
+    }
+    printf("%d",num%2);
+}
+
+void main()
+{
+    int num;
+    printf("Enter a number:");
+    scanf("%d",&num);
+    printf("The binary number of %d is:",num);
+    binary(num);
+}
+
+</textarea>
+</div>
+<div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter a number:7
+The binary number of 7 is:0111
+</textarea>
+</div>
+</div>
+<div class="code-output" id="code-output-4">
+            <div class="code-frame">
+                <h2>5. Code</h2>
+                <textarea readonly>
+//FIND THE LARGEST ELEMENT IN THE INTEGER ARRAY USING RECURSION
+#include<stdio.h>
+
+int largest(int arr[],int n,int i,int max)
+{
+    if(i==n)
+    {
+        return max;  
+    } 
+    else
+    {
+        if(arr[i]>max)
+        {
+            max=arr[i];  
+        }
+        return largest(arr,n,i+1,max);  
+    }
+}
+
+int main() 
+{
+    int n,i,max;
+    printf("Enter the size of array:");
+    scanf("%d",&n);
+    
+    int arr[n];
+    printf("Enter the elements in array:");
+    for(i=0;i<n;i++) 
+    {
+        scanf("%d",&arr[i]);
+    }
+    max=largest(arr,n,1,arr[0]);  
+    printf("The largest element in array is: %d\n",max);
+
+    return 0;
+}
+</textarea>
+</div>
+<div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the size of array:5
+Enter the elements in array:2
+6
+10
+8
+1
+The largest element in array is: 10
+</textarea>
+</div>
+</div>
+<div class="code-output" id="code-output-5">
+            <div class="code-frame">
+                <h2>6. Code</h2>
+                <textarea readonly>
+//FIND THE SMALLEST ELEMENT IN THE INTEGER ARRAY USING RECURSION
+#include<stdio.h>
+
+int smallest(int arr[],int n,int i,int min)
+{
+    if(i==n)
+    {
+        return min;
+    }
+    else if(arr[i]<min)
+    {
+        min=arr[i];
+    }
+    else
+    {
+        return smallest(arr,n,i+1,min);
+    }
+}
+
+int main()
+{
+    int n,i,min;
+    printf("Enter the size of array:");
+    scanf("%d",&n);
+    
+    int arr[n];
+    printf("Enter the elements in array:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    min=smallest(arr,n,0,arr[0]);
+    printf("The smallest element in array is:%d",min);
+}
+</textarea>
+</div>
+<div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the size of array:5
+Enter the elements in array:10
+60
+100
+50
+200
+The smallest element in array is:10
+</textarea>
+</div>
+</div>
+<div class="code-output" id="code-output-6">
+            <div class="code-frame">
+                <h2>7. Code</h2>
+                <textarea readonly>
+/*ENTER THE NUMBER FROM THE USER AND ADD ALL DIGITS OF THE NUMBER USING 
+RECURSION.*/
+#include<stdio.h>
+
+int sum(int num)
+{
+    if(num==0)
+    {
+        return 0;
+    }
+    else
+    {
+        return (num%10)+sum(num/10);
+    }
+}
+
+void main()
+{
+    int num;
+    printf("Enter the number:");
+    scanf("%d",&num);
+    printf("The sum of digits of number is:%d",sum(num));
+}
+</textarea>
+</div>
+<div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+
+Enter the number:1234
+The sum of digits of number is:10
+</textarea>
+</div>
+</div>
+
+<div class="code-output" id="code-output-7">
+            <div class="code-frame">
+                <h2>8. Code</h2>
+                <textarea readonly>
+//FIND THE ARITHMETIC MEAN OF AN INTEGER ARRAY USING RECURSION
+#include<stdio.h>
+
+int sum(int arr[],int n) 
+{
+    if(n<=0) 
+    {
+        return 0;
+    }
+    return arr[n-1]+sum(arr,n-1);
+}
+
+float mean(int arr[],int n)
+{
+    int total_sum; 
+    total_sum=sum(arr,n);
+    return (float)total_sum/n;
+}
+
+int main() 
+{
+    int n,i;
+
+    printf("Enter the size of the array:");
+    scanf("%d",&n);
+
+    int arr[n];
+
+    printf("Enter the elements in the array:");
+    for(i=0;i<n;i++) 
+    {
+        scanf("%d",&arr[i]);
+    }
+
+    float Mean; 
+    Mean=mean(arr,n);
+    printf("The arithmetic mean of the array is: %.2f\n",Mean);
+
+    return 0;
+}
+</textarea>
+</div>
+<div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the size of the array:5
+Enter the elements in the array:2
+4
+6
+8
+10
+The arithmetic mean of the array is: 6.00
+</textarea>
+</div>
+</div>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 My Stylish Website. All rights reserved.</p>
+        <a href="index.html">Back to Home</a>
+    </footer>
+
+    <script>
+        function toggleCode(index) {
+            const codeOutput = document.getElementById(`code-output-${index}`);
+            const isVisible = codeOutput.style.display === "flex";
+            
+            // Hide all code outputs first
+            const allOutputs = document.querySelectorAll('.code-output');
+            allOutputs.forEach(output => output.style.display = "none");
+            
+            // Toggle visibility of the selected output only if it was not already visible
+            if (!isVisible) {
+                codeOutput.style.display = "flex";
+            }
+        }
+
+        // Initially hide all code outputs
+        document.querySelectorAll('.code-output').forEach(output => {
+            output.style.display = "none";
+        });
+    </script>
+</body>
+</html>

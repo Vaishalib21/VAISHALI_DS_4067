@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA STRUCTURE Overview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            width: 100%;
+            padding: 2em 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        main {
+            width: 85%;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .category {
+            background-color: #1f1f1f; /* Dark card background */
+            color: #ffcc00; /* Bright accent color */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            margin: 10px;
+            border-radius: 15px;
+            width: 280px;
+            text-align: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid #ffcc00; /* Border color */
+        }
+
+        .category:hover {
+            box-shadow: 0 8px 16px rgba(255, 204, 0, 0.5);
+            transform: translateY(-5px);
+            border-color: #fff; /* Change border color on hover */
+        }
+
+        .category i {
+            font-size: 50px; /* Icon size */
+            margin-bottom: 10px;
+            color: #ffcc00; /* Bright accent color */
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #ffcc00; /* Bright accent color */
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #1e1e1e; /* Dark footer */
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .category {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DATA STRUCTURE</h1>
+    </header>
+    <main>
+        <div class="category" onclick="location.href='2Darray.html'">
+            <i class="fas fa-th"></i>
+            <h2>2D Arrays</h2>
+        </div>
+        <div class="category" onclick="location.href='graphs.html'">
+            <i class="fas fa-project-diagram"></i>
+            <h2>Graphs</h2>
+        </div>
+        <div class="category" onclick="location.href='linkedlist.html'">
+            <i class="fas fa-list-alt"></i>
+            <h2>Linked List</h2>
+        </div>
+        <div class="category" onclick="location.href='queues.html'">
+            <i class="fas fa-arrow-right"></i>
+            <h2>Queues</h2>
+        </div>
+        <div class="category" onclick="location.href='recursion.html'">
+            <i class="fas fa-recycle"></i>
+            <h2>Recursion</h2>
+        </div>
+        <div class="category" onclick="location.href='searching.html'">
+            <i class="fas fa-search"></i>
+            <h2>Searching Algorithms</h2>
+        </div>
+        <div class="category" onclick="location.href='singlearray.html'">
+            <i class="fas fa-align-left"></i>
+            <h2>Single Dimension Arrays</h2>
+        </div>
+        <div class="category" onclick="location.href='sorting.html'">
+            <i class="fas fa-sort"></i>
+            <h2>Sorting Algorithms</h2>
+        </div>
+        <div class="category" onclick="location.href='stack.html'">
+            <i class="fas fa-archive"></i>
+            <h2>Stacks</h2>
+        </div>
+        <div class="category" onclick="location.href='string.html'">
+            <i class="fas fa-font"></i>
+            <h2>Strings</h2>
+        </div>
+        <div class="category" onclick="location.href='trees.html'">
+            <i class="fas fa-tree"></i>
+            <h2>Trees</h2>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Stylish Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

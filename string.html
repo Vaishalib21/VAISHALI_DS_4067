@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            width: 100%;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .container {
+            display: flex;
+            width: 85%;
+            margin: 30px auto;
+            gap: 20px;
+        }
+
+        .questions {
+            flex: 1;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.3em;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .questions li {
+            font-size: 1em;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .code-output {
+            display: none;
+            flex-direction: column;
+            flex: 1;
+            gap: 20px;
+        }
+
+        .code-frame, .output-frame {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            font-size: 1.2em;
+            overflow: hidden;
+        }
+
+        textarea {
+            width: 100%;
+            height: 900px; /* Set fixed height for textarea */
+            background-color: #2c2c2c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            resize: none; /* Prevent resizing */
+            font-family: 'Courier New', Courier, monospace;
+            overflow: auto;
+            outline: none;
+            box-sizing: border-box; /* Include padding in height */
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: #ffcc00;
+        }
+
+        .tabs {
+            display: flex;
+            margin: 20px 0;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex: 1;
+            text-align: center;
+            font-size: 1em;
+            border: 2px solid transparent;
+            border-top: 2px solid #ffcc00;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab:hover {
+            background-color: #333;
+            border-color: #ffcc00;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #1e1e1e;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STRINGS</h1>
+        <div class="tabs">
+            <div class="tab" onclick="location.href='2Darray.html'"><b>2D Array</b></div>
+            <div class="tab" onclick="location.href='graphs.html'"><b>Graphs</b></div>
+            <div class="tab" onclick="location.href='linkedlist.html'"><b>Linked List</b></div>
+            <div class="tab" onclick="location.href='queues.html'"><b>Queues</b></div>
+            <div class="tab" onclick="location.href='recursion.html'"><b>Recursion</b></div>
+            <div class="tab" onclick="location.href='searching.html'"><b>Searching Algorithms</b></div>
+            <div class="tab" onclick="location.href='singlearray.html'"><b>Single Dimension Array</b></div>
+            <div class="tab" onclick="location.href='sorting.html'"><b>Sorting</b></div>
+            <div class="tab" onclick="location.href='stack.html'"><b>Stack</b></div>
+            <div class="tab" onclick="location.href='string.html'"><b>Strings</b></div>            
+            <div class="tab" onclick="location.href='trees.html'"><b>Trees</b></div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="questions">
+            <h2>Questions</h2>
+            <ol type=1>
+                <li onclick="toggleCode(0)">Enter the string from user and convert in uppercase?</li>
+                <li onclick="toggleCode(1)">Enter the string from user and convert in lowercase?</li>
+                <li onclick="toggleCode(2)">Enter the string from user and convert into sentence case?</li>
+                <li onclick="toggleCode(3)">Enter the string from user and convert into title case?</li>
+                <li onclick="toggleCode(4)">Enter the string from user and convert into toggle case?</li>
+                <li onclick="toggleCode(5)">Enter the string from user and find the final length of the string?</li>
+                <li onclick="toggleCode(6)">Enter two strings from user and compare those strings for equality?</li>
+                <li onclick="toggleCode(7)">Enter two strings from user and concatenate those strings in another string and display the answer?</li>
+                <li onclick="toggleCode(8)">Enter the string from user and copy it into another string variable?</li>
+                <li onclick="toggleCode(9)">Enter the string from user, enter the index number and print the character present at that index?</li>
+                <li onclick="toggleCode(10)">Enter the string from user and check if it's a palindrome?</li>
+                <li onclick="toggleCode(11)">Enter the string from user and print each character in a new line?</li>
+                <li onclick="toggleCode(12)">Enter the string from user and copy the reverse of the string into another string?</li>
+                <li onclick="toggleCode(13)">Enter the string from user and print the difference of ASCII values of each character?</li>
+                <li onclick="toggleCode(14)">Enter the string from user, enter a character, and search the character in the string?</li>
+                <li onclick="toggleCode(15)">Enter the string from user, enter a character, and print the index of the character if it exists in the string; else print -1.</li>
+                <li onclick="toggleCode(16)">Enter the string from user and count the number of vowels?</li>
+                <li onclick="toggleCode(17)">Enter the string from user and convert into an integer value?</li>
+                <li onclick="toggleCode(18)">Enter the string from user and convert into a float value?</li>
+                <li onclick="toggleCode(19)">Enter the string from user and count the number of characters, words, spaces, and lines?</li>
+                <li onclick="toggleCode(20)">Print all the permutations of a string i.e. "ABCDE".</li>
+                <li onclick="toggleCode(21)">Enter the string from user, sort the string in ascending order and print it.</li>
+                <li onclick="toggleCode(22)">Enter a sentence from user and then enter a word and count the occurrence of that word in the sentence.</li>
+                <li onclick="toggleCode(23)">Enter a sentence from user and then enter a word and replace that word with another word.</li>
+                <li onclick="toggleCode(24)">Enter the string from user and trim/eliminate the spaces from both ends (if any).</li>
+                <li onclick="toggleCode(25)">Enter the string from user and split the first word and second word, returning the start index of the second word.</li>
+                <li onclick="toggleCode(26)">Display the string on the output screen but ask for the text alignment option given by the user (1 for left, 2 for center, 3 for right).</li>
+                <li onclick="toggleCode(27)">Create a dictionary having 10 words and their meanings with the following operations: [Create, Delete, Search].</li>
+                <li onclick="toggleCode(28)">Enter the string from user and convert characters into their ASCII values in an integer array. [For example, take 10 characters]</li>
+            </ol>
+        </div>
+        <div class="code-output" id="code-output-0">
+            <div class="code-frame">
+                <h2>1. Code</h2>
+                <textarea readonly>
+//Enter the string from user and convert in uppercase
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]>='a'&&str[i]<='z')
+        str[i]=str[i]-32;
+    }
+    printf("\nString in uppercase is:\n%s",str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+vaishali
+
+String in uppercase is:
+VAISHALI
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-1">
+            <div class="code-frame">
+                <h2>2. Code</h2>
+                <textarea readonly>
+//Enter the string from user and convert in lowercase
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string:\n");
+    gets(str);
+   // printf("\nString is:\n%s",str);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]>='A'&&str[i]<='Z')
+        str[i]=str[i]+32;
+    }
+    printf("\nString in lowercase is:\n%s",str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+VAISHALI
+
+String in lowercase is:
+vaishali
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-2">
+            <div class="code-frame">
+                <h2>3. Code</h2>
+                <textarea readonly>
+//Enter the string from user and convert into sentence case
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string:\n");
+    gets(str);
+   // printf("\nString is:\n%s",str);
+    for(i=1;str[i]!='\0';i++)//take directly str[1]
+    {
+        if(str[0]>='a'&&str[0]<='z')
+        {
+            str[0]=str[0]-32;
+        }
+        else if(str[i]>='A'&&str[i]<='Z')
+        {
+            str[i]=str[i]+32;
+        }
+    }
+    printf("\nString in sentence case is:\n%s",str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+THIS IS A SENTENCE
+
+String in sentence case is:
+This is a sentence
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-3">
+            <div class="code-frame">
+                <h2>4. Code</h2>
+                <textarea readonly>
+//Enter the string from user and convert into title case
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    for(i=1;str[i]!='\0';i++)//take directly str[1]
+    {
+        if(str[0]>='a'&&str[0]<='z')
+        {
+            str[0]=str[0]-32;
+        }
+        else if(str[i]>='a'&&str[i-1]==' '&&str[i]<='z')
+        {
+            str[i]=str[i]-32;
+        }
+        else if(str[i-1]!=' '&&str[i]>='A'&&str[i]<='Z')
+        {
+            str[i]=str[i]+32;
+        }
+    }
+    printf("\nString in title case is:\n%s",str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+THIS IS A SENTENCE
+
+String in title case is:
+This Is A Sentence
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-4">
+            <div class="code-frame">
+                <h2>5. Code</h2>
+                <textarea readonly>
+//ENTER THE STRING FROM USER AND CONVERT INTO TOGGLE CASE
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i;
+    printf("Enter the string:\n");
+    gets(str);
+   // printf("\nString is:\n%s",str);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]>='a'&&str[i]<='z')//lowercase
+        {
+            str[i]=str[i]-32;
+        }
+        else if(str[i]>='A'&&str[i]<='Z')//uppercase
+        {
+            str[i]=str[i]+32;
+        }
+    }
+    printf("\nString in toggle case is:\n%s",str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+This Is a Sentence
+
+String in toggle case is:
+tHIS iS A sENTENCE
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-5">
+            <div class="code-frame">
+                <h2>6. Code</h2>
+                <textarea readonly>
+//ENTER THE STRING FROM USER AND FINAL LENGTH OF THE STRING
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i,len=0;
+    printf("Enter the string:\n");
+    gets(str);
+   // printf("\nString is:\n%s",str);
+    printf("Length of string is:");
+    for(i=0;str[i]!='\0';i++)
+    {
+        len++;
+    }
+    printf("%d",len);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+vaishali
+Length of string is:8
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-6">
+            <div class="code-frame">
+                <h2>7. Code</h2>
+                <textarea readonly>
+/*ENTER TWO STRINGS FROM USER AND COMPARE THOSE STRINGS THAT THEY
+ARE EQUAL OR NOT*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str_1[100],str_2[100];
+    int i,len1,len2;
+    //Input for first string
+    printf("Enter the first string:\n");
+    gets(str_1);
+    //printf("\nFirst String is:\n%s",str_1);
+    for(i=0;str_1[i]!='\0';i++)//for checking the length of string1
+    {
+        len1++;
+        
+    }
+    //printf("%d",len1);
+    
+    //Input for second string
+    printf("\nEnter the second string:\n");
+    gets(str_2);
+    //printf("Second string is:\n%s",str_2);
+    for(i=0;str_2[i]!='\0';i++)//for checking the length of string2
+    {
+        len2++;
+        
+    }
+    //printf("%d",len2);
+    if(len1==len2)
+    {
+        printf("\nStrings are equal");
+    }
+    else
+    {
+        printf("\nStrings are not equal");
+    }
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the first string:
+vaishali
+
+Enter the second string:
+bansal
+
+Strings are not equal
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-7">
+            <div class="code-frame">
+                <h2>8. Code</h2>
+                <textarea readonly>
+/*Enter two strings from user and concatenate those strings in 
+another string and display the answer*/
+#include<stdio.h>
+#include<string.h>
+	
+void main()
+{
+    char str_1[100],str_2[100],concat[200];
+    int i,j;
+    
+    //Input for first string
+    printf("Enter the first string:\n");
+    gets(str_1);
+    //printf("\nFirst String is:\n%s",str_1);
+    for(i=0;str_1[i]!='\0';i++)
+    {
+        concat[i]=str_1[i];
+    }
+    
+    //Input for second string
+    printf("\nEnter the second string:\n");
+    gets(str_2);
+    //printf("\nSecond String is:\n%s",str_2);
+    for(j=0;str_2[j]!='\0';j++)
+    {
+        concat[i+j]=str_2[j];
+    }
+  
+    printf("\nThe concatenated string is: %s",concat);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the first string:
+vaishali
+
+Enter the second string:
+bansal
+
+The concatenated string is: vaishalibansal
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-8">
+            <div class="code-frame">
+                <h2>9. Code</h2>
+                <textarea readonly>
+/*Enter the string from user and copy it into another string 
+variable*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100],copy_str[100];
+    int i;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    //copying string to another
+    for(i=0;str[i]!='\0';i++)
+    {
+        copy_str[i]=str[i];
+    }
+    copy_str[i]='\0';
+    printf("\ncopied string is:%s",copy_str);
+}
+
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+vaishali
+
+copied string is:vaishali
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-9">
+            <div class="code-frame">
+                <h2>10. Code</h2>
+                <textarea readonly>
+/*Enter the string from user, enter the index number and print 
+character present on that index*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100],temp;
+    int i,num;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    printf("\nEnter the index number:");
+    scanf("%d",&num);
+    temp=str[i];//copying string to temp variable
+    {
+        if(temp==str[i])
+        {
+            printf("Index[%d]=%c\n",num,str[num]);
+        }
+    }
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+vaishali
+
+Enter the index number:4
+Index[4]=h
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-10">
+            <div class="code-frame">
+                <h2>11. Code</h2>
+                <textarea readonly>
+//Enter the string from user and check its palindrome or not
+#include<stdio.h>
+
+int length(char str[])
+{
+    int len=0;
+    while(str[len]!='\0')
+    {
+        len++;
+    }
+    return len;
+}
+
+void reverse(char str[],char rev[],int len) 
+{
+    int i;
+    for(i=0;i<len;i++) 
+    {
+        rev[i]=str[len-i-1];
+    }
+    rev[len]='\0'; 
+}
+
+void palindrome(char str[])
+{
+    int l,i;
+    char rev[100];
+    l=length(str);
+    reverse(str,rev,l);
+
+    for(i=0;i<l;i++)
+    {
+        if(str[i]!=rev[i])
+        {
+            printf("The string is not palindrome\n",str);
+            return;
+        }
+    }
+    printf("The string is a palindrome\n",str);
+}
+
+void main() 
+{
+    char str[100];
+    printf("Enter a string:");
+    gets(str);
+
+    palindrome(str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter a string:maam
+The string is a palindrome
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-11">
+            <div class="code-frame">
+                <h2>12. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user and print each character in new 
+line*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100],temp;
+    int i,num;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    //printing each character in new line
+    for(i=0;str[i]!='\0';i++)
+    printf("\n%c",str[i]);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+
+h
+e
+l
+l
+o
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-12">
+            <div class="code-frame">
+                <h2>13. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user and copy reverse of the string into
+another string*/
+#include<stdio.h>
+#include<string.h>
+
+int length(char str[]) 
+{
+    int length=0;
+    while(str[length]!='\0')
+    {
+        length++;
+    }
+    return length;
+}
+
+void main()
+{
+    int i,count;
+    char str[100],copy[100];
+    printf("Enter the string:");
+    gets(str);
+    //printf("String is:%s",str);
+    
+    count=length(str);
+    for(i=0;i<count;i++)
+    {
+        copy[i]=str[count-i-1];
+   }
+    printf("reverse:%s",copy);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:hello
+reverse:olleh
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-13">
+            <div class="code-frame">
+                <h2>14. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user and print the difference of ascii 
+value of each character*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    for(i=0;str[i]!='\0'&&str[i+1]!='\0';i++)
+    {
+        if(str[i]>='a'&&str[i]<='z'||str[i]>='A'&&str[i]<='Z')
+        {
+            printf("\nDifference of [%c]-[%c]=%d",str[i],str[i+1],str[i]-str[i+1]);
+        }
+    }
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+
+Difference of [h]-[e]=3
+Difference of [e]-[l]=-7
+Difference of [l]-[l]=0
+Difference of [l]-[o]=-3
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-14">
+            <div class="code-frame">
+                <h2>15. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user, enter a character also and search 
+the character in the string*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100],c;
+    int i;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    //Input for character
+    printf("Enter a character:");
+    scanf("%c",&c);
+    
+    //searching for character in string
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(c==str[i])
+        {
+            printf("\nThe searched character is in the string",str[i]);
+            return;
+        }
+        
+    }//else
+        {
+            printf("\nNot in string");
+        }
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+Enter a character:o
+
+The searched character is in the string
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-15">
+            <div class="code-frame">
+                <h2>16. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user, also enter a character and print 
+the index of the character if it is exist in the string else print 
+-1*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100],c;
+    int i;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    //Input for character
+    printf("\nEnter a character:");
+    scanf("%c",&c);
+    
+    //searching for character in string and printing index no.
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(c==str[i])
+        {
+            printf("\nIndex Number of[%c]=%d:",c,i);
+            return;
+        }
+    }
+    printf("-1");
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+
+Enter a character:q
+-1
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-16">
+            <div class="code-frame">
+                <h2>17. Code</h2>
+                <textarea readonly>
+//Enter the string from the user, and count the number of vowels
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i,count=0;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+        {
+            count++;
+        }
+    }
+    printf("\nTotal no of vowels are:%d",count);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+
+Total no of vowels are:2
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-17">
+            <div class="code-frame">
+                <h2>18. Code</h2>
+                <textarea readonly>
+
+//18. Enter the string from user and convert into an integer value
+#include <stdio.h>
+
+int stringToInteger(char* str) 
+{
+    int num = 0;
+    int sign = 1; 
+
+    if (*str == '-') 
+    {
+        sign = -1;
+        str++; 
+    } 
+    else if (*str == '+') 
+    {
+        str++; 
+    }
+    while (*str >= '0' && *str <= '9') 
+    {
+        num = num * 10 + (*str - '0'); 
+        str++; 
+    }
+
+    return num * sign; 
+}
+
+int main() 
+{
+    char str[100];
+    int number;  
+
+    printf("Enter a string representing an integer: ");
+    scanf("%99s", str); 
+
+    number = stringToInteger(str);
+
+    printf("The converted integer value is: %d\n", number);
+
+    return 0; 
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+
+Enter a string representing an integer: 123
+The converted integer value is: 123
+
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-18">
+            <div class="code-frame">
+                <h2>19. Code</h2>
+                <textarea readonly>
+
+//19. Enter the string from user and convert into a float value
+#include <stdio.h>
+
+float stringToFloat(char* str) 
+{
+    float num = 0.0;
+    float fraction = 1.0;
+    int sign = 1;
+
+    if (*str == '-') 
+    {
+        sign = -1;
+        str++;
+    }
+    else if (*str == '+') 
+    {
+        str++;
+    }
+
+    while (*str >= '0' && *str <= '9') 
+    {
+        num = num * 10.0 + (*str - '0');
+        str++;
+    }
+
+    if (*str == '.') 
+    {
+        str++;
+        while (*str >= '0' && *str <= '9') 
+        {
+            fraction /= 10.0;
+            num += (*str - '0') * fraction; 
+            str++;
+        }
+    }
+
+    return num * sign; 
+}
+
+int main() 
+{
+    char str[100];
+    float number;
+
+    printf("Enter a string representing a float: ");
+    scanf("%99s", str);
+
+    number = stringToFloat(str);
+
+    printf("The converted float value is: %.6f\n", number);
+
+    return 0;
+}
+
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+
+Enter a string representing a float: 10.5
+The converted float value is: 10.500000
+
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-19">
+            <div class="code-frame">
+                <h2>20. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user and count the number of characters,
+words, spaces and lines*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100];
+    int i,space=0,lines=0,words=1,character=0;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(str[i]==' ')
+        {
+            space++;
+            words++;
+        }
+        if(str[i]=="\n")
+        {
+            lines++;
+        }
+        character++;
+    }
+    printf("\nTotal no of spaces are:%d",space);
+    printf("\nTotal no of lines are:%d",lines);
+    printf("\nTotal no of words are:%d",words);
+    printf("\nTotal no of character are:%d",character);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+i am vaishali
+
+Total no of spaces are:2
+Total no of lines are:0
+Total no of words are:3
+Total no of character are:13
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-20">
+            <div class="code-frame">
+                <h2>21. Code</h2>
+                <textarea readonly>
+//Print all the permutation of a string i.e. "abcde".
+#include<stdio.h>
+
+void swap(char *x,char *y) 
+{
+    char temp; 
+    temp=*x;
+    *x=*y;
+    *y=temp;
+}
+void permutation(char *str,int left,int right) 
+{
+    int i;
+    if(left==right)
+    {
+        for(i=0;str[i]!='\0';i++) 
+        {
+            printf("%c",str[i]);
+        }
+        printf("\n");
+    } 
+    else
+    {
+        for(i=left;i<=right;i++)
+        {
+            swap((str+left),(str+i));
+            permutation(str,left+1,right); 
+            swap((str+left),(str+i)); 
+        }
+    }
+}
+int main() 
+{
+    char str[100];
+    printf("Enter the string:");
+    gets(str);
+    int n=0;
+
+    while(str[n]!='\0')
+    {
+        n++;
+    }
+    printf("All permutations of the string \"%s\":\n",str);
+    permutation(str,0,n-1); 
+    return 0; 
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:abc
+All permutations of the string "abc":
+abc
+acb
+bac
+bca
+cba
+cab
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-21">
+            <div class="code-frame">
+                <h2>22. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user, sort the string in ascending order
+and print it*/
+#include<stdio.h>
+#include<string.h>
+
+void selection_sort(char str[])
+{
+    int i,temp,j;
+    for(i=0;str[i]!='\0';i++)
+    {
+        for(j=i+1;str[j]!='\0';j++)
+        {
+            if(str[i]>str[j])
+            {
+                temp=str[i];
+                str[i]=str[j];
+                str[j]=temp;
+            }
+        }
+    }
+}
+void main()
+{
+    char str[100];
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    selection_sort(str);
+    printf("\nThe Sorted string is:\n");
+    printf("%s",str);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+
+The Sorted string is:
+ehllo
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-22">
+            <div class="code-frame">
+                <h2>23. Code</h2>
+                <textarea readonly>
+/*Enter a sentence from user and then enter the word and count the 
+occurence of that word in the sentence*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[100],word[100];
+    int i,j,count=0;
+    
+    //Input for string
+    printf("Enter the sentence:\n");
+    gets(str);
+    //printf("\nSentence is:\n%s",str);
+    
+    //Input for word
+    printf("Enter the word:");
+    scanf("%s",&word);
+    for(i=0;str[i]!='\0';i++) 
+    {
+        if(str[i]==word[0]) 
+        {
+            for(j=0;word[j]!='\0';j++)
+            {
+                if(str[i+j]!=word[j]) 
+                {
+                    break;
+                }
+            }
+            if(word[j]=='\0')
+            {
+                if((i==0||str[i-1]==' ')&&(str[i+j]==' '||str[i+j] =='\0'))
+                {
+                    count++;
+                }
+            }
+        }
+    }
+    printf("\nTotal no of %s words are:%d",word,count);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the sentence:
+this is the coding world and welcome to the coding world
+Enter the word:coding
+
+Total no of coding words are:2
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-23">
+            <div class="code-frame">
+                <h2>24. Code</h2>
+                <textarea readonly>
+/*Enter a sentence from user and then enter the word and replace 
+that word by another word.*/
+#include<stdio.h>
+
+void main()
+{
+    char str[100],rep_word[100],new_word[100];
+    char result[200]; 
+    int i,j,k,count;
+
+    // Input for sentence
+    printf("Enter the sentence:\n");
+    gets(str); 
+
+    // Input for word
+    printf("Enter the word to be replaced:");
+    scanf("%s",rep_word);
+    printf("Enter the new word:");
+    scanf("%s",new_word);
+
+    i=0; 
+    j=0;
+    while(str[i]!='\0') 
+    {
+        count=0; 
+        while(str[i+count]==rep_word[count]&&rep_word[count]!='\0')
+        {
+            count++;
+        }
+        if(rep_word[count]=='\0'&&(str[i+count]==' '||str[i+count] =='\0')) 
+        {
+            for(k=0;new_word[k]!='\0';k++)
+            {
+                result[j++]=new_word[k];
+            }
+            if(str[i+count]==' ')
+            {
+                result[j++]=' ';
+            }
+            i+=count;
+        } 
+        else 
+        {
+            result[j++]=str[i++];
+        }
+    }
+    result[j]='\0';
+    printf("New sentence is:%s\n",result);
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the sentence:
+my name is bansal
+Enter the word to be replaced:bansal
+Enter the new word:vaishali
+New sentence is:my name is vaishali
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-24">
+            <div class="code-frame">
+                <h2>25. Code</h2>
+                <textarea readonly>
+/*Enter the string from the user and trim/ eliminate the spaces from
+both ends (if any).*/
+#include<stdio.h>
+
+void trim(char str[])
+{
+    int start,end;
+    start=0;
+    end=0;
+    while(str[start]==' ')
+    {
+        start++;
+    }
+
+    end=start; 
+    while(str[end]!='\0') 
+    {
+        end++;
+    }
+    end--; 
+    while(end>=start&&str[end]==' ')
+    {
+        end--;
+    }
+    int j=0,i;
+    for(i=start;i<=end;i++) 
+    {
+        str[j++]=str[i];
+    }
+    str[j]='\0'; 
+}
+
+int main() 
+{
+    char str[100];
+
+    // Input for string
+    printf("Enter the string:\n");
+    gets(str); 
+
+    trim(str); 
+
+    printf("Trimmed string is: '%s'\n",str);
+    return 0; 
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+vaishali bansal
+Trimmed string is: 'vaishali bansal'
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-25">
+            <div class="code-frame">
+                <h2>26. Code</h2>
+                <textarea readonly>
+/*Enter the string from user and splits the first word and second 
+word and return the start index of the second word.*/
+#include<stdio.h>
+
+int split_string(char str[],char first_word[],char second_word[])
+{
+    int i=0,j=0;
+    while(str[i]!=' '&&str[i]!='\0')
+    {
+        first_word[j++]=str[i++];
+    }
+    first_word[j]='\0';
+    while(str[i]==' ')
+    {
+        i++;
+    }
+    j=0;
+    while(str[i]!=' '&&str[i]!='\0')
+    {
+        second_word[j++]=str[i++];
+    }
+    second_word[j]='\0';
+    return i-j;
+}
+int main() 
+{
+    char str[100],first_word[50],second_word[50];
+    printf("Enter a string:");
+    gets(str);
+
+    int index=split_string(str,first_word,second_word);
+
+    printf("First word: %s\n",first_word);
+    printf("Second word: %s\n",second_word);
+    printf("Start index of the second word:%d\n",index);
+
+    return 0;
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter a string:vaishali bansal
+First word: vaishali
+Second word: bansal
+Start index of the second word:9
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-26">
+            <div class="code-frame">
+                <h2>27. Code</h2>
+                <textarea readonly>
+/*Display the string on the output screen but ask the text alignment
+option given by the user (1 for left, 2 for center, 3 right)*/
+#include<stdio.h>
+#include<string.h>
+void left_align(char str[])
+{
+    printf("%s",str);
+}
+void center_align(char str[])
+{
+    int len=0;
+    while(str[len]!='\0') 
+    {
+        len++;
+    }
+    int spaces,i;
+    spaces=(80-len)/2; 
+    for(i=0;i<spaces;i++) 
+    {
+        printf(" ");
+    }
+    printf("%s\n",str);
+}
+void right_align(char str[])
+{
+    int len=0;
+    while(str[len]!='\0') 
+    {
+        len++;
+    }
+    int spaces,i;
+    spaces=80-len;
+    for(i=0;i<spaces;i++)
+    {
+        printf(" ");
+    }
+    printf("%s\n",str);
+}
+void main()
+{
+    char str[100];
+    int i,choice;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    printf("\n1.Left Alignment\n2.Center Alignment\n3.Right Alignment");
+    printf("\nEnter your choice:");
+    scanf("%d",&choice);
+    for(i=0;i<=2;i++)
+    {
+        if(choice==1)
+        {
+            printf("\nLeft Alignment:\n");
+            left_align(str);
+            break;
+        }
+        else if(choice==2)
+        {
+            printf("\nCenter Alignment:\n");
+            center_align(str);
+            break;
+        }
+        else if(choice==3)
+        {
+            printf("Right Alignment:");
+            right_align(str);
+            break;
+        }
+        else
+        {
+            printf("Invalid Input");
+            break;
+        }
+    }
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+i am vaishali
+
+1.Left Alignment
+2.Center Alignment
+3.Right Alignment
+Enter your choice:2
+
+Center Alignment:
+                                 i am vaishali
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-27">
+            <div class="code-frame">
+                <h2>28. Code</h2>
+                <textarea readonly>
+
+/*28. Create a dictionary having 10 words and their meanings with 
+the following operations: [Create, Delete, Search].*/
+#include <stdio.h>
+#include <string.h>
+#define MAX 10
+#define WORD_LEN 20
+#define MEANING_LEN 100
+
+typedef struct 
+{
+    char word[WORD_LEN];
+    char meaning[MEANING_LEN];
+} DictionaryEntry;
+
+void initialize(DictionaryEntry dictionary[]) 
+{
+    for (int i = 0; i < MAX; i++) 
+    {
+        dictionary[i].word[0] = '\0';
+        dictionary[i].meaning[0] = '\0';
+    }
+}
+
+void create(DictionaryEntry dictionary[], char word[], char meaning[]) 
+{
+    for (int i = 0; i < MAX; i++) 
+    {
+        if (dictionary[i].word[0] == '\0') 
+        {
+            strcpy(dictionary[i].word, word);
+            strcpy(dictionary[i].meaning, meaning);
+            printf("Word added successfully.\n");
+            return;
+        }
+    }
+    printf("Dictionary is full. Cannot add more words.\n");
+}
+
+void delete(DictionaryEntry dictionary[], char word[]) 
+{
+    for (int i = 0; i < MAX; i++) 
+    {
+        if (strcmp(dictionary[i].word, word) == 0) 
+        {
+            dictionary[i].word[0] = '\0';
+            dictionary[i].meaning[0] = '\0';
+            printf("Word deleted successfully.\n");
+            return;
+        }
+    }
+    printf("Word not found.\n");
+}
+
+void search(DictionaryEntry dictionary[], char word[]) 
+{
+    for (int i = 0; i < MAX; i++) 
+    {
+        if (strcmp(dictionary[i].word, word) == 0) 
+        {
+            printf("Meaning of %s: %s\n", word, dictionary[i].meaning);
+            return;
+        }
+    }
+    printf("Word not found.\n");
+}
+
+int main()
+{
+    DictionaryEntry dictionary[MAX];
+    int choice;
+    char word[WORD_LEN], meaning[MEANING_LEN];
+
+    initialize(dictionary);
+
+    do 
+    {
+        printf("\nMenu:\n");
+        printf("1. Create\n");
+        printf("2. Delete\n");
+        printf("3. Search\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar(); // to consume the newline character
+
+        switch (choice) 
+        {
+            case 1:
+                printf("Enter word: ");
+                gets(word);
+                printf("Enter meaning: ");
+                gets(meaning);
+                create(dictionary, word, meaning);
+                break;
+            case 2:
+                printf("Enter word to delete: ");
+                gets(word);
+                delete(dictionary, word);
+                break;
+            case 3:
+                printf("Enter word to search: ");
+                gets(word);
+                search(dictionary, word);
+                break;
+            case 4:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    } 
+    while (choice != 4);
+
+    return 0;
+}
+
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 1
+Enter word: apple
+Enter meaning: a fruit that is red, green, yellow.
+Word added successfully.
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 1
+Enter word: cat
+Enter meaning: a small domesticated carnivourous animal.
+Word added successfully.
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 3
+Enter word to search: apple
+Meaning of apple: a fruit that is red, green, yellow.
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 2
+Enter word to delete: cat
+Word deleted successfully.
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 3
+Enter word to search: cat
+Word not found.
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 7
+Invalid choice! Please try again.
+
+Menu:
+1. Create
+2. Delete
+3. Search
+4. Exit
+Enter your choice: 4
+Exiting...
+
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="code-output" id="code-output-28">
+            <div class="code-frame">
+                <h2>29. Code</h2>
+                <textarea readonly>
+/*Enter the string from user and convert characters into their ascii
+values in the integer array. [for example take 10 characters]*/
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char str[10];
+    int i,len1=0;
+    
+    //Input for string
+    printf("Enter the string:\n");
+    gets(str);
+    //printf("\nString is:\n%s",str);
+    
+    for(i=0;str[i]!='\0';i++)
+    {
+        if(len1>10)
+        {
+            printf("size should be less than 10");
+            return;
+        }
+        else
+        {
+            printf("\nAscii value of [%c]=%d",str[i],str[i]);
+        }
+    }
+}
+
+                </textarea>
+            </div>
+            <div class="output-frame">
+                <h2>Output</h2>
+                <textarea readonly>
+Enter the string:
+hello
+
+Ascii value of [h]=104
+Ascii value of [e]=101
+Ascii value of [l]=108
+Ascii value of [l]=108
+Ascii value of [o]=111
+
+                </textarea>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 My Stylish Website. All rights reserved.</p>
+        <a href="index.html">Back to Home</a>
+    </footer>
+    <script>
+        function toggleCode(index) {
+            const codeOutput = document.getElementById(`code-output-${index}`);
+            const isVisible = codeOutput.style.display === "flex";
+            
+            // Hide all code outputs first
+            const allOutputs = document.querySelectorAll('.code-output');
+            allOutputs.forEach(output => output.style.display = "none");
+            
+            // Toggle visibility of the selected output only if it was not already visible
+            if (!isVisible) {
+                codeOutput.style.display = "flex";
+            }
+        }
+
+        // Initially hide all code outputs
+        document.querySelectorAll('.code-output').forEach(output => {
+            output.style.display = "none";
+        });
+    </script>
+</body>
+</html>
